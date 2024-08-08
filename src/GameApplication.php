@@ -38,9 +38,9 @@ class GameApplication
     public function createCharacter(string $character): Character
     {
         return match (strtolower($character)) {
-            'fighter' => new Character(90, 12, 0.25),
-            'archer' => new Character(80, 10, 0.15),
-            'mage' => new Character(70, 8, 0.10),
+            'fighter' => new Character(90, 12, 0.25, new AttackType\TwoHandedSwordType()),
+            'archer' => new Character(80, 10, 0.15, new AttackType\BowType()),
+            'mage' => new Character(70, 8, 0.10, new AttackType\FireBoltType()),
             default => throw new \RuntimeException('Undefined Character'),
         };
     }
